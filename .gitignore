@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 Будет удалено .idea/
+idea/
 *.pyc
 __pycache__
 myvenv
