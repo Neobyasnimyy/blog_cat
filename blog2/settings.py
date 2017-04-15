@@ -25,7 +25,9 @@ SECRET_KEY = '2ldic_g-_4(jv(cja*&q3oo%6s*==j0)1j4ff@i-4y1!sc_k#z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # 'blogcat.pythonanywhere.com',
+]
 
 
 # Application definition
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'blog2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'blog/../templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'blog2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'my_db.sqlite3'),
     }
 }
 
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-Ru'
 
 TIME_ZONE = 'UTC'
 
@@ -120,4 +122,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# вся статика собирается в одну папку STATIC_ROOT из всех твоих STATICFILES_DIRS
+# STATICFILES_DIRS — tuple с дополнительными путями где Django будет искать статику.
+# Вот в эти папки и нужно складывать статику, которая не относится к конкретным apps
+# STATICFILES_DIRS = (
+#   os.path.join(BASE_DIR, "static", "static_dev"),
+# )
+
+# MEDIA_ROOT — путь куда django. ... .default_storage будет сохранять загруженные файлы
+# (при желании можно использовать другой класс хранилища, который будет игнорировать эту опцию).
+
+# STATIC_ROOT — путь куда Django (а не вы) складывает файлы статики.
+# Эту папку можно отдать на обслуживание веб-серверу.
+#
+# MEDIA_URL = '/media/'
+#
+# MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
